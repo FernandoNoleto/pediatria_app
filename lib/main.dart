@@ -12,9 +12,40 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(
+        canvasColor: Colors.pink[50]
+      ),
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        appBar: AppBar(title: Text('Pediatria'), backgroundColor: Colors.pink[200] ),
+        drawer: Drawer(
+          child: ListView(
+            padding: EdgeInsets.zero,
+            children: <Widget>[
+              Container(child: new DrawerHeader(child: new CircleAvatar(backgroundColor: Colors.black54,)),color: Colors.pinkAccent[100],),
+              Container(
+                color: Colors.pink[50],
+                child: Column(
+                  children: <Widget>[
+                    ListTile(
+                      title: Text('Página inicial'),
+                      onTap: () {
+                        Navigator.pop(context);
+                      },
+                    ),
+                    ListTile(
+                      title: Text('Configurações'),
+                      onTap: () {
+                        Navigator.pop(context);
+                      },
+                    ),
+                  ],
+                ),
+              )
+            ],
+          ),
+        ),
+        appBar: AppBar(
+            title: Text('Pediatria'), backgroundColor: Colors.pink[200] ),
         body: SingleChildScrollView(
           child: Container(
             padding: const EdgeInsets.all(8.0),
