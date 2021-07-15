@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:drop_cap_text/drop_cap_text.dart';
 
@@ -12,17 +14,50 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        appBar: AppBar(title: Text('Exibindo imagem local')),
-        body: Column( children: <Widget>[
-          DropCapText(
-            loremIpsumText,
-            dropCap: DropCap(
-              width: 100,
-              height: 100,
-              child: Image.asset("images/alimentacao.jpg"),
+        appBar: AppBar(title: Text('Pediatria'), backgroundColor: Colors.pink[200] ),
+        body: Container(
+          padding: const EdgeInsets.all(8.0),
+          color: Colors.pink[50],
+          alignment: Alignment.center,
+          child: Column( children: <Widget>[
+            DropCapText(
+              loremIpsumText,
+              parseInlineMarkdown: true,
+              // dropCapStyle: TextStyle(fontSize: 100, fontWeight: FontWeight.bold, color: Colors.green),
+              dropCapPadding: EdgeInsets.only(right: 12.0),
+              style: TextStyle(fontSize: 16.0, height: 1.3, fontWeight: FontWeight.bold, color: Colors.black54),
+              dropCap: DropCap(
+                width: 150,
+                height: 150,
+                child: Image.asset("images/alimentacao.jpg"),
+              ),
             ),
-          ),
-        ]),
+            DropCapText(
+              loremIpsumText,
+              dropCapPosition: DropCapPosition.end,
+              textAlign: TextAlign.justify,
+              dropCapPadding: EdgeInsets.only(left: 12.0),
+              style: TextStyle(fontSize: 16.0, height: 1.3, fontWeight: FontWeight.bold, color: Colors.black54),
+              dropCap: DropCap(
+                width: 100,
+                height: 100,
+                child: Image.asset("images/alimentacao.jpg"),
+              ),
+            ),
+            DropCapText(
+              loremIpsumText,
+              parseInlineMarkdown: true,
+              // dropCapStyle: TextStyle(fontSize: 100, fontWeight: FontWeight.bold, color: Colors.green),
+              dropCapPadding: EdgeInsets.only(right: 12.0),
+              style: TextStyle(fontSize: 16.0, height: 1.3, fontWeight: FontWeight.bold, color: Colors.black54),
+              dropCap: DropCap(
+                width: 150,
+                height: 150,
+                child: Image.asset("images/alimentacao.jpg"),
+              ),
+            ),
+          ]),
+        ),
       ),
     );
   }
